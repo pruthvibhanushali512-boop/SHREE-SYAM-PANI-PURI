@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shree Shyam Pani Puri Center</title>
-    <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -12,7 +11,6 @@
         * { box-sizing: border-box; font-family: 'Poppins', sans-serif; margin: 0; padding: 0; }
         body { background: #f4f6f9; color: #333; padding-bottom: 30px; }
         
-        /* Header Banner */
         .header {
             background: linear-gradient(135deg, #ff5722, #d84315);
             color: white;
@@ -25,7 +23,6 @@
         .header h1 { font-size: 22px; font-weight: 700; }
         .header p { font-size: 13px; opacity: 0.9; margin-top: 4px; }
         
-        /* Notice Banner */
         .notice-banner {
             background: #fff3cd;
             color: #856404;
@@ -41,7 +38,6 @@
 
         .container { max-width: 480px; margin: 0 auto; padding: 0 15px; }
 
-        /* Shop Location Button */
         .shop-loc-btn {
             display: flex;
             align-items: center;
@@ -57,42 +53,48 @@
             text-decoration: none;
             margin: 15px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: 0.3s;
         }
-        .shop-loc-btn:hover { background: #ffebe6; }
 
-        /* Section Titles */
         .section-title { font-size: 16px; font-weight: 700; margin: 15px 0 10px; color: #444; }
         
-        /* Menu Cards */
+        /* Menu Cards with Image */
         .menu-card {
             background: white;
             border-radius: 12px;
-            padding: 15px;
+            padding: 12px;
             margin-bottom: 12px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
-        .menu-info h3 { font-size: 16px; color: #222; }
+        
+        .item-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .menu-info { flex: 1; }
+        .menu-info h3 { font-size: 15px; color: #222; }
         .menu-info p { color: #2e7d32; font-weight: 700; font-size: 14px; margin-top: 2px; }
 
-        .qty-controls { display: flex; align-items: center; gap: 10px; }
+        .qty-controls { display: flex; align-items: center; gap: 8px; }
         .btn-qty {
             background: #f0f0f0;
             border: none;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             color: #333;
         }
-        .qty-val { font-weight: 700; font-size: 15px; width: 20px; text-align: center; }
+        .qty-val { font-weight: 700; font-size: 15px; width: 18px; text-align: center; }
 
-        /* Form Controls */
         .form-group { margin-bottom: 12px; }
         .form-group label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px; color: #666; }
         .form-group input, .form-group select {
@@ -105,13 +107,11 @@
             background: #fff;
         }
 
-        /* Location Status */
         .loc-status { font-size: 12px; margin-top: 4px; display: flex; align-items: center; gap: 5px; }
         .loc-success { color: #2e7d32; }
         .loc-loading { color: #ff9800; }
         .loc-error { color: #d32f2f; }
 
-        /* Total Container */
         .total-container {
             background: white;
             padding: 15px;
@@ -122,7 +122,6 @@
         .total-row { display: flex; justify-content: space-between; font-size: 18px; font-weight: 700; color: #222; }
         .total-price { color: #d84315; }
 
-        /* Submit Button */
         .btn-whatsapp {
             width: 100%;
             background: #25D366;
@@ -144,27 +143,26 @@
 </head>
 <body>
 
-    <!-- Header -->
     <div class="header">
         <h1>Shree Shyam Pani Puri Center</h1>
         <p>તાજી, સ્વાદિષ્ટ અને ચટપટી વાનીઓ!</p>
     </div>
 
     <div class="container">
-        <!-- Pick-up Notice Banner -->
         <div class="notice-banner">
             <i class="fa-solid fa-store"></i> નોંધ: ઓર્ડર તૈયાર રાખવામાં આવશે, ગ્રાહકે દુકાને આવીને ઓર્ડર પિકઅપ કરવાનો રહેશે.
         </div>
 
-        <!-- Shop Location Button -->
         <a href="https://maps.google.com" target="_blank" class="shop-loc-btn">
             <i class="fa-solid fa-map-location-dot"></i> અમારી દુકાનનું લોકેશન જુઓ (Maps)
         </a>
 
-        <!-- Menu Section -->
         <div class="section-title">મેનૂ (Menu)</div>
 
+        <!-- Pani Puri -->
         <div class="menu-card">
+            <!-- ફોટાનું નામ પથ અહીં સેટ કરો -->
+            <img src="panipuri.jpg" alt="Pani Puri" class="item-img" onerror="this.src='https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200'">
             <div class="menu-info">
                 <h3>પાણીપુરી (Pani Puri)</h3>
                 <p>₹20 / પ્લેટ</p>
@@ -176,7 +174,9 @@
             </div>
         </div>
 
+        <!-- Sev Puri -->
         <div class="menu-card">
+            <img src="sevpuri.jpg" alt="Sev Puri" class="item-img" onerror="this.src='https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=200'">
             <div class="menu-info">
                 <h3>સેવપુરી (Sev Puri)</h3>
                 <p>₹30 / પ્લેટ</p>
@@ -188,7 +188,9 @@
             </div>
         </div>
 
+        <!-- Dahi Puri -->
         <div class="menu-card">
+            <img src="dahipuri.jpg" alt="Dahi Puri" class="item-img" onerror="this.src='https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200'">
             <div class="menu-info">
                 <h3>દહીંપુરી (Dahi Puri)</h3>
                 <p>₹30 / પ્લેટ</p>
@@ -200,7 +202,6 @@
             </div>
         </div>
 
-        <!-- Details Section -->
         <div class="section-title">તમારી વિગત (Customer Details)</div>
         
         <div class="form-group">
@@ -213,7 +214,6 @@
             <input type="tel" id="cust-phone" placeholder="10 અંકનો નંબર">
         </div>
 
-        <!-- Payment Mode Select -->
         <div class="form-group">
             <label for="pay-mode">પેમેન્ટની રીત પસંદ કરો</label>
             <select id="pay-mode">
@@ -222,7 +222,6 @@
             </select>
         </div>
 
-        <!-- Location Status -->
         <div class="form-group">
             <label>તમારું કરન્ટ લોકેશન</label>
             <div id="loc-status" class="loc-status loc-loading">
@@ -230,7 +229,6 @@
             </div>
         </div>
 
-        <!-- Total Container -->
         <div class="total-container">
             <div class="total-row">
                 <span>કુલ રકમ:</span>
@@ -244,15 +242,11 @@
     </div>
 
     <script>
-        // 1. તમારો સેટ થયેલો WhatsApp નંબર
         const myWhatsAppNumber = "917310978720";
-
-        // Prices & Quantities
         const prices = { panipuri: 20, sevpuri: 30, dahipuri: 30 };
         const quantities = { panipuri: 0, sevpuri: 0, dahipuri: 0 };
         let userLocationUrl = "પ્રાપ્ત થયું નથી";
 
-        // Auto Location Detect
         window.onload = function() {
             const locStatus = document.getElementById('loc-status');
             if ("geolocation" in navigator) {
@@ -272,7 +266,6 @@
             }
         };
 
-        // Quantity Logic
         function changeQty(item, delta) {
             if (quantities[item] + delta >= 0) {
                 quantities[item] += delta;
@@ -281,7 +274,6 @@
             }
         }
 
-        // Calculate Total Price
         function updateTotal() {
             let total = (quantities.panipuri * prices.panipuri) +
                         (quantities.sevpuri * prices.sevpuri) +
@@ -290,7 +282,6 @@
             return total;
         }
 
-        // Send Order to WhatsApp
         function sendWhatsAppOrder() {
             const name = document.getElementById('cust-name').value.trim();
             const phone = document.getElementById('cust-phone').value.trim();
