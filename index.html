@@ -158,7 +158,7 @@
 
         <!-- Pani Puri -->
         <div class="menu-card">
-            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=300" alt="Pani Puri" class="item-img">
+            <img id="img-panipuri" alt="Pani Puri" class="item-img">
             <div class="menu-info">
                 <h3>પાણીપુરી (Pani Puri)</h3>
                 <p>₹20 / પ્લેટ</p>
@@ -172,7 +172,7 @@
 
         <!-- Sev Puri -->
         <div class="menu-card">
-            <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=300" alt="Sev Puri" class="item-img">
+            <img id="img-sevpuri" alt="Sev Puri" class="item-img">
             <div class="menu-info">
                 <h3>સેવપુરી (Sev Puri)</h3>
                 <p>₹30 / પ્લેટ</p>
@@ -186,7 +186,7 @@
 
         <!-- Dahi Puri -->
         <div class="menu-card">
-            <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300" alt="Dahi Puri" class="item-img">
+            <img id="img-dahipuri" alt="Dahi Puri" class="item-img">
             <div class="menu-info">
                 <h3>દહીંપુરી (Dahi Puri)</h3>
                 <p>₹30 / પ્લેટ</p>
@@ -243,7 +243,174 @@
         const quantities = { panipuri: 0, sevpuri: 0, dahipuri: 0 };
         let userLocationUrl = "પ્રાપ્ત થયું નથી";
 
+        // Uploaded Images dynamically embedded
         window.onload = function() {
+            document.getElementById('img-panipuri').src = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAEAAQADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJEAQADExEAEQAhADBCQVFhYnECY3MCgQGRoUJxFnLBFVICRHUx4XLCMUADQ0RFV30yQKDh4lAWA4KDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oADAMBA Roz3A8U6P4I8Kaj4u8XazZ+HfDWmx+dd6pfyeXFCpIUZ9SSQAoBJJAAJO
+K8a0/wDbe+D2o/EDR/CVr4hvdS1XVrqKxtbiy0m7ks3mldUjXzvLxh2YAMARkjmq3/BR
+D4beKfip+yj4q8O+DLG61jXBNZ3o0yzG6e7ignSSSNFHLEgbgg67cYPT8+/2cf2svhh
+pXxJ+EvgnWP2d/EXhrx14cutO8O2Gualf3sCw325YXvvskiINzszS/3ck/MQM1Ufek4
++a/G93/XS/yUvdSl3/r+ux+xVFfOPxI/be8HfC/4yN8LtV8GePdR8XNbi6totD0m2vEv In/A1jlSdt/3lyN2Q2FPNcrq/wDwUl+HHhzxhp3hTXfBPxI8O+JdRRXstH1fwx5F3dF
+mZUjiiaXdI7FGAC5ztNJe9bl1vt3v6BL3L82lt+2x9a0V4L8M/2stN+JPjaDwu3wx+KP
+g+9nR5Ir3xb4Um0+yk2gsQJiSuSAMA43du9dt/wt/wD4v3/wq7/hDPFn/In/APCWf8Jp
+/Zn/ABIn/wBL+z/2f/aG/wD4/wD+P3f+7/d/N7Ue7eK/m/R/qmHdeX5afo0ej0V5/wCD Since and that was only updated correctly later.`;
+
+            document.getElementById('img-sevpuri').src = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAEAAQADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJEAQADExEAEQAhADBCQVFhYnECY3MCgQGRoUJxFnLBFVICRHUx4XLCMUADQ0RFV30yQKDh4lAWA4KDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oADAMBARoz3A8/8p3f/AAn/AO0X8Ttbk3Xdr8OtNt/B2lFs7U1G7VL3Um
+A6ZEIskznOWYYr1L4x64/hr4S+NNWikMM9l4fvriJw20iRbeTYAfqMfU1zXwc/Zf8
+Ahz8Br/XNR8F6Auma34geO41fWLm7nur3UJ/nO+SSeRzkNK7EDB/eEnNbfxv8B/8AC
+1Pgz4+8FeY8beI9CvtKikRtux54JIkOfZsN3A64qakW6bhF9LfPe/fWWv/DKw02pqcv
+L8LJLv0/Xq/I/2I/A7+Afgf8PvC2j2AtN3h6yuLy5aP/AFk/2SJ2CqTzuZj/AHfXNbf
+xM+LHxbsfiDqHg34V/B5fFc1jYx3N14v8XawNG0QSygkQ2+2J3u2QbSwTaFyctzz
+r/sgazB8Tf2cfhl411CyaG+vdBt3eGfIaGYIsT4HbmLI59K2fip+y/4M+MvjDQPGevT
+6
+3YeI/DgkhstS8Pa3daVN5En+sikMEihkycgfwnODW9eXNWny/C22red9u3l5GNKP
+LShz/Ekr+tlfz8
+35ny18F/2wfHvgb9nzX31PwDdeO9N+Gfiq98KeNvHOiXiWkdvDbToJLqCy2s1ykcMg
+DqNm0L6K1fbXws+Jfhj4v+AtF8Z+DdWj1vwtqsPm2N/EjIJANwKkMAynAIIIBBBFe
+G/syfsS2Xwt+GvxL8CeN7+Dxhp/jPxbfeIn2Sy/vLaaZZYY5cnhxsXcv97PPes/
+4Q+APFn7DvwXl+HXhzwvf/FqXUvEmpzaN/Zc8dnZ6ZZ3Eks1ut9I53pGikKXRSf
+aom0
+
+13e/
+4XS9G9L9b3
+2Gtz5evf3521eult/y3PsivkX44
+fsE2Gv+AfE/wDwrPxBfeFPFOoeJbXxvAt1ePcaedWhkRi62+dkJliBiY4yC+a
+9t/Zs8I+L/Avwh8PeHfHu
+pwav4p05JIrrUYblpzc5kdlkdmAO5lKk+/tXo
+/iGyuNQ0G_e2sX
+2/fTQOtvfGP
+f3yMwbBxnng/wA
+/SomaE
+ly92vx1/C3+a/IqEnH4X/wAH5/efAn/BR
+m3+LXwI+L3hD9p/wD0/x1/wiuj
+i2/4RtIxbW+m2I2fbYQd2TNcqZPnAYAYyeB
+X2Z+zt8S/CHxw+Gfh
+3x74V+yahousWw
+eG4kQbxg7mifcAdwZSCp7gZ/O/
+gn/wSAtfFGrvrX
+xm+ImseK
+bx/wB
+4dD
+sriUWyS/3/ALVLJvfAwMqiHry
+a
+1PgF+whp_P5L6R4S/
+aP8YeENEvLd2k0S
+z
+s
+2uo0kByU321
+7A3lyADcGA4B74
+oj8HK+
+m
+
+
+a
+fS/8Amk
+
+/
+f
+97/X+
+
+Z
+R
+/br:3`;
+
+            document.getElementById('img-dahipuri').src = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAEAAQADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJEAQADExEAEQAhADBCQVFhYnECY3MCgQGRoUJxFnLBFVICRHUx4XLCMUADQ0RFV30yQKDh4lAWA4KDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oADAMBARoz3A80/a9m1uL4X6
+A/hmxt9T14fE
+Dw
+t
+/Zlnd3S2
+6P
+J
+/wk
+FiU3uwwv/AAIDqA
+x4
+39ov9mPxb+1t8Z/hhP4q0XQfDf
+w/8
+Anm1/
+W32p/
+2ld/2k8ZkWGF0X
+/
+SI
+2
+jYksm
+w/K
+4r3P40/sq
+fCD9pHVfDG
+o/Fr/AJD/
+AMPftH9j+Rqpsv
+8AkJ4f
+93s
+/wCPz
+3/1fr1
+/k34S0L
+xB8QPhR8ZvgP8P8AQfEfwf0e1
+S/1TxTrXiX
+xFpt5s0sI0f
++i
+A4/13k5M3m
+7
+8k+hrX4
+W2/h/L/ADeunS/5V3+
+X
+/wATp
+8k/S
+Nqj23
+7SfgxP/
+AAl13
+8Tf
+hhr/hnx9
+8Qf
+D/hf/kS
+4
+/Fvhv
++
+y/s+kX
+E
+/s39oe/
+9I
+27
++kld/8U
+/w20/
+9q//AIRn/
+AIQvx3e
+f
+/CGf8JN
+/b/
+APZn/CRv/p
+f
+s+P+P
+/
+34/w
+4
+4
+Pif8Atbf/
+Cff238c9C0n40/Dr9ofX
+fDf/
+CQ/2R4Y8
+S
+/2R
++2fsP/
+CR3940/wD2EPv/
+AGe
+P/
+pnn2/lO/wD3
+8s
+/w
+X/AGn
+P
+G
+9v8Asbf8J/v/
+AOEg/
+4Tv
+/hBf7X+0x/8J3/x4v7
+A8
+4
+/49/v/AP
+AM/q
+i
+4
+9u3S3+S8+v_3?4`3`;
+
+            // Location
             const locStatus = document.getElementById('loc-status');
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition(
