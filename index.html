@@ -10,7 +10,6 @@
     <style>
         * { box-sizing: border-box; font-family: 'Poppins', sans-serif; margin: 0; padding: 0; }
         
-        /* સુંદર એટ્રેક્ટિવ ફૂડ ગ્રેડિએન્ટ બેકગ્રાઉન્ડ */
         body { 
             background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 50%, #ffcc80 100%);
             background-attachment: fixed;
@@ -160,7 +159,6 @@
             <i class="fa-solid fa-store"></i> નોંધ: ઓર્ડર તૈયાર રાખવામાં આવશે, ગ્રાહકે દુકાને આવીને ઓર્ડર પિકઅપ કરવાનો રહેશે.
         </div>
 
-        <!-- તમારી સાચી GOOGLE MAPS LINK અહીં ઉમેરાઈ ગઈ છે -->
         <a href="https://maps.app.goo.gl/4eQCGm1Akmwfxyo39?g_st=ac" target="_blank" class="shop-loc-btn">
             <i class="fa-solid fa-map-location-dot"></i> અમારી દુકાનનું લોકેશન જુઓ (Maps)
         </a>
@@ -224,8 +222,8 @@
         <div class="form-group">
             <label for="pay-mode">પેમેન્ટની રીત પસંદ કરો</label>
             <select id="pay-mode">
-                <option value="Cash on Pickup (દુકાને આવીને કેશ આપવું)">દુકાને આવીને કેશ આપવું (Cash)</option>
-                <option value="Online Payment (GPay / PhonePe પરથી)">ઓનલાઇન પેમેન્ટ (GPay / PhonePe / QR Code)</option>
+                <option value="Cash on Pickup (દુકાને કેશ)">દુકાને આવીને કેશ આપવું (Cash)</option>
+                <option value="Online Payment (GPay/PhonePe)">ઓનલાઇન પેમેન્ટ (GPay / PhonePe / QR Code)</option>
             </select>
         </div>
 
@@ -278,22 +276,23 @@
                 return;
             }
 
-            let msg = `*નવો પિકઅપ ઓર્ડર!* 🏪%0A`;
-            msg += `*દુકાન:* Shree Shyam Pani Puri Center%0A`;
-            msg += `------------------------------%0A`;
-            msg += `*ગ્રાહકનું નામ:* ${encodeURIComponent(name)}%0A`;
-            msg += `*મોબાઈલ:* ${encodeURIComponent(phone)}%0A`;
-            msg += `*પેમેન્ટ મોડ:* ${encodeURIComponent(payMode)}%0A`;
-            msg += `------------------------------%0A`;
-            msg += `*ઓર્ડર આઇટમ્સ:*%0A`;
+            // નવું ક્લીન રસીદ સ્ટાઈલ મેસેજ ફોર્મેટ
+            let msg = `🛍️ *NEW PICKUP ORDER* 🛍️%0A`;
+            msg += `🏪 *Shree Shyam Pani Puri Center*%0A`;
+            msg += `══════════════════%0A`;
+            msg += `👤 *ગ્રાહક:* ${encodeURIComponent(name)}%0A`;
+            msg += `📞 *ફોન:* ${encodeURIComponent(phone)}%0A`;
+            msg += `💳 *પેમેન્ટ:* ${encodeURIComponent(payMode)}%0A`;
+            msg += `══════════════════%0A`;
+            msg += `📋 *ઓર્ડર આઇટમ્સ:*%0A`;
 
-            if (quantities.panipuri > 0) msg += `• પાણીપુરી: ${quantities.panipuri} પ્લેટ (₹${quantities.panipuri * prices.panipuri})%0A`;
-            if (quantities.sevpuri > 0) msg += `• સેવપુરી: ${quantities.sevpuri} પ્લેટ (₹${quantities.sevpuri * prices.sevpuri})%0A`;
-            if (quantities.dahipuri > 0) msg += `• દહીંપુરી: ${quantities.dahipuri} પ્લેટ (₹${quantities.dahipuri * prices.dahipuri})%0A`;
+            if (quantities.panipuri > 0) msg += `▶ પાણીપુરી : ${quantities.panipuri} પ્લેટ ➔ ₹${quantities.panipuri * prices.panipuri}%0A`;
+            if (quantities.sevpuri > 0) msg += `▶ સેવપુરી : ${quantities.sevpuri} પ્લેટ ➔ ₹${quantities.sevpuri * prices.sevpuri}%0A`;
+            if (quantities.dahipuri > 0) msg += `▶ દહીંપુરી : ${quantities.dahipuri} પ્લેટ ➔ ₹${quantities.dahipuri * prices.dahipuri}%0A`;
 
-            msg += `------------------------------%0A`;
-            msg += `*કુલ બિલ:* ₹${total}%0A`;
-            msg += `*ઓર્ડર પ્રકાર:* Takeaway (દુકાને આવીને લેવું)`;
+            msg += `══════════════════%0A`;
+            msg += `💰 *કુલ બિલ:* *₹${total}*%0A`;
+            msg += `📍 *પ્રકાર:* Takeaway (દુકાને આવીને લેવું)`;
 
             const waUrl = `https://wa.me/${myWhatsAppNumber}?text=${msg}`;
             window.open(waUrl, '_blank');
